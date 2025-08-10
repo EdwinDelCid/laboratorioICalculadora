@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Calculadora - Vanilla Js</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+</head>
+
+<body>
+    <main class="container">
+        <div class="calculadora" role="application" aria-label="Calculadora">
+            <div class="pantalla" aria-live="polite">
+                <div data-valor-previo class="valor-previo" aria-hidden="true"></div>
+                <div data-valor-actual class="valor-actual" aria-live="assertive">0</div>
+            </div>
+            <div class="buttons">
+                <table role="grid">
+                    <tr>
+                        <td><button class="btn-especial" data-borrar-todo aria-label="Borrar todo">AC</button></td>
+                        <td><button class="btn-especial" data-borrar aria-label="Borrar">C</button></td>
+                        <td><button class="btn-especial" data-porcentaje aria-label="Porcentaje">%</button></td>
+                        <td><button class="btn-operador" data-operacion aria-label="Dividir">÷</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn-numero" data-numero aria-label="Siete">7</button></td>
+                        <td><button class="btn-numero" data-numero aria-label="Ocho">8</button></td>
+                        <td><button class="btn-numero" data-numero aria-label="Nueve">9</button></td>
+                        <td><button class="btn-operador" data-operacion aria-label="Multiplicar">×</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn-numero" data-numero aria-label="Cuatro">4</button></td>
+                        <td><button class="btn-numero" data-numero aria-label="Cinco">5</button></td>
+                        <td><button class="btn-numero" data-numero aria-label="Seis">6</button></td>
+                        <td><button class="btn-operador" data-operacion aria-label="Restar">−</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn-numero" data-numero aria-label="Uno">1</button></td>
+                        <td><button class="btn-numero" data-numero aria-label="Dos">2</button></td>
+                        <td><button class="btn-numero" data-numero aria-label="Tres">3</button></td>
+                        <td><button class="btn-operador" data-operacion aria-label="Sumar">+</button></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button class="btn-numero" id="cero" data-numero aria-label="Cero">0</button></td>
+                        <td><button class="btn-numero" data-numero aria-label="Punto decimal">.</button></td>
+                        <td><button class="btn-operador" data-igual aria-label="Igual">=</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="src/script.js" defer></script>
+</body>
+
+</html>

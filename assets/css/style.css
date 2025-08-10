@@ -1,0 +1,197 @@
+:root {
+  --color-bg: #000000;
+  --color-display: #1c1c1e;
+  --color-number: #333333;
+  --color-number-pressed: #737373;
+  --color-operator: #ff9f0a;
+  --color-operator-pressed: #ffbf60;
+  --color-special: #a5a5a5;
+  --color-special-pressed: #d9d9d9;
+  --color-text-light: #ffffff;
+  --color-text-dark: #000000;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+  background-color: var(--color-bg);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  touch-action: manipulation;
+}
+
+.container {
+  width: 100%;
+  max-width: 414px; /* Tamaño similar a iPhone */
+  padding: 20px;
+}
+
+.calculadora {
+  background-color: var(--color-bg);
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+}
+
+.pantalla {
+  background-color: var(--color-display);
+  padding: 30px 20px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.valor-previo {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin-bottom: 8px;
+  height: 1.8rem;
+}
+
+.valor-actual {
+  color: var(--color-text-light);
+  font-size: 4.5rem;
+  font-weight: 300;
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.buttons {
+  padding: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 8px;
+}
+
+td {
+  text-align: center;
+}
+
+button {
+  height: 80px;
+  width: 80px;
+  border: none;
+  border-radius: 50%;
+  font-size: 2.2rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  color: var(--color-text-light);
+  background-color: var(--color-number);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+button:active {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+button.btn-numero {
+  background-color: var(--color-number);
+  color: var(--color-text-light);
+}
+
+button.btn-numero:active {
+  background-color: var(--color-number-pressed);
+}
+
+button.btn-operador {
+  background-color: var(--color-operator);
+  color: var(--color-text-light);
+  font-size: 2.5rem;
+}
+
+button.btn-operador:active {
+  background-color: var(--color-operator-pressed);
+}
+
+button.btn-especial {
+  background-color: var(--color-special);
+  color: var(--color-text-dark);
+  font-size: 1.8rem;
+}
+
+button.btn-especial:active {
+  background-color: var(--color-special-pressed);
+}
+
+button#cero {
+  width: 170px;
+  border-radius: 40px;
+  justify-content: flex-start;
+  padding-left: 32px;
+}
+
+/* Estado activo para botones */
+button.active-operator {
+  background-color: var(--color-text-light);
+  color: var(--color-operator);
+}
+
+/* Efecto de pulsación para iOS */
+@supports (-webkit-touch-callout: none) {
+  button {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+/* Media queries para diferentes tamaños de pantalla */
+@media (max-width: 375px) {
+  button {
+    height: 70px;
+    width: 70px;
+    font-size: 2rem;
+  }
+  
+  button#cero {
+    width: 150px;
+  }
+  
+  .valor-actual {
+    font-size: 4rem;
+  }
+}
+
+@media (max-height: 700px) {
+  .pantalla {
+    min-height: 150px;
+    padding: 20px 15px;
+  }
+  
+  .valor-actual {
+    font-size: 3.5rem;
+  }
+  
+  button {
+    height: 65px;
+    width: 65px;
+    font-size: 1.8rem;
+  }
+  
+  button#cero {
+    width: 140px;
+  }
+}
